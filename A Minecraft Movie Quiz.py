@@ -9,9 +9,7 @@ total_correct = 0
 cont = 0
 answer = 0
 question_Num = 0
-
-#Set the order of the questions and shuffle it around
-random.shuffle(order)
+percente_Correct = 0
 
 #The questions
 questions = {"Who was the main character of the Minecraft Movie": 2, "Which Line made the cinema's all over the world go wild": 1, "Who was the main antagonist of the movie": 2,
@@ -27,6 +25,7 @@ answers = ["1. John \n2. Steve \n3. Jeff \n4. Bowser", "1. CHICKEN JOCKEY! \n2. 
             "1. MumboJumbo \n2. Dream\n3. Technoblade\n4. DanTDM", "1. Villager Marrying a real woman\n2. Villager Nitwit Getting a job\n3. Piglin Baby training for war\n4. Steve Shooting Making a cow farm",]
 
 #Repeats the question program
+
 for i in questions:
     os.system('cls')
     print(i)
@@ -50,7 +49,25 @@ for i in questions:
         cont = 1
         question_Num += 1
         input("Click enter to continue")
-print(f"Good job! you got {total_correct}0%")
+
+os.system('cls')
+if total_correct > 8:
+    message = "Amazing work!!!"
+elif total_correct > 6:
+    message = "Good Job!"
+elif total_correct > 4:
+    message = "You did ok!"
+elif total_correct > 2:
+    message = "Maybe try a bit harder next time."
+elif total_correct > 0:
+    message = "Oof, not so great"
+elif total_correct == 0:
+    message = "Have you even watched the movie?"
+percent_Correct = total_correct * 10
+
+
+
+print(f"{message} you got {percent_Correct}%")
 
     
 

@@ -8,9 +8,9 @@ import os
 total_correct = 0
 cont = 0
 answer = 0
+question_Num = 0
 
 #Set the order of the questions and shuffle it around
-order = [0,1,2,3,4,5,6,7,8,9]
 random.shuffle(order)
 
 #The questions
@@ -27,10 +27,10 @@ answers = ["1. John \n2. Steve \n3. Jeff \n4. Bowser", "1. CHICKEN JOCKEY! \n2. 
             "1. MumboJumbo \n2. Dream\n3. Technoblade\n4. DanTDM", "1. Villager Marrying a real woman\n2. Villager Nitwit Getting a job\n3. Piglin Baby training for war\n4. Steve Shooting Making a cow farm",]
 
 #Repeats the question program
-for i in order:
+for i in questions:
     os.system('cls')
-    print(questions[i])
-    print(answers[i])
+    print(i)
+    print(answers[question_Num])
     cont = 0
     while cont != 1:
         try:
@@ -42,14 +42,14 @@ for i in order:
         except:
             print("Please type a valid answer")
             continue
-        if guess == answer:
+        if guess == questions[i]:
             print("Correct! Good Job!!!")
             total_correct += 1
         else:
             print(f"Incorrect, The correct answer was number {answer}")
         cont = 1
+        question_Num += 1
         input("Click enter to continue")
-        
 print(f"Good job! you got {total_correct}0%")
 
     

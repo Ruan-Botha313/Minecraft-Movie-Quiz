@@ -62,11 +62,12 @@ for i in questions:
             print("Correct! Good Job!!!")
             total_correct += 1
         else:
-            print(f"Incorrect, The correct answer was number {answer}")
+            print(f"Incorrect, The correct answer was number {questions[i]}")
         cont = 1
         question_Num += 1
         input("Click enter to continue")
 
+#Sets a different message to be printed based on how many right answers were gotten
 os.system('cls')
 if total_correct > 8:
     message = "Amazing work!!!"
@@ -81,7 +82,6 @@ elif total_correct > 0:
 elif total_correct == 0:
     message = "Have you even watched the movie?"
 percent_Correct = total_correct * 10
-
 print(f"{message} you got {percent_Correct}%")
 
     

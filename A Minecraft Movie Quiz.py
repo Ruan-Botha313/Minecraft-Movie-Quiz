@@ -11,6 +11,8 @@ answer = 0
 question_Num = 0
 percent_Correct = 0
 
+
+order = [0,1,2,3,4,5,6,7,8,9]
 #The questions
 questions = {"Who was the main character of the Minecraft Movie": 2,
              "Which Line made the cinema's all over the world go wild": 1,
@@ -42,22 +44,35 @@ answers = ["1. John \n2. Steve \n3. Jeff \n4. Bowser",
             "\n3. Piglin Baby training for war"
             "\n4. Steve Making a cow farm",]
 
-#Repeats the question program
+#The main question program, that repeats for every question in the 
+#questions dictionary
 for i in questions:
+    #Prints the question and options for user
     os.system('cls')
     print(i)
     print(answers[question_Num])
     cont = 0
     while cont != 1:
         try:
+            #Tries to recieve input from user, if it recieves a invalid
+            #input it repeats this until the user inputs a valid input
             guess = 0
             while guess > 4 or guess < 1:
-                guess = int(input("Which answer is correct? "))
+                guess = int(input("Which answer is correct?(1-4) "))
                 if guess > 4 or guess < 1:
+                    os.system('cls')
                     print("Not a valid Number")
+                    print(i)
+                    print(answers[question_Num])
         except:
+            os.system('cls')
             print("Not a valid Input")
+            print(i)
+            print(answers[question_Num])
             continue
+        #Detects if the users guess is correct or incorrect, which then
+        #displays that and increases the question number for the 
+        #answers to print out properly
         if guess == questions[i]:
             print("Correct! Good Job!!!")
             total_correct += 1
@@ -65,9 +80,10 @@ for i in questions:
             print(f"Incorrect, The correct answer was number {questions[i]}")
         cont = 1
         question_Num += 1
-        input("Click enter to continue")
+        input("Click enter to continue: ")
 
-#Sets a different message to be printed based on how many right answers were gotten
+#Sets a different message to be printed based on how many right answers 
+#were gotten
 os.system('cls')
 if total_correct > 8:
     message = "Amazing work!!!"
@@ -81,10 +97,11 @@ elif total_correct > 0:
     message = "Oof, not so great"
 elif total_correct == 0:
     message = "Have you even watched the movie?"
-percent_Correct = total_correct * 10
+percent_Correct = 100/len(questions)
+percent_Correct = total_correct * percent_Correct
 print(f"{message} you got {percent_Correct}%")
 
-#Random Hatsune Miku Cause Why Not
+#Random Hatsune Miku Cause Why Not 
 """⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣷⣀⡤⠤⠤⠤⠤⢤⣄⣀⡀⠀⠀⠀⣀⣀⡀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢀⣾⣿⣟⡵⠚⠉⠀⠤⠂⠀⠀⠀⠀⠀⠀⠉⠓⠦⣾⣿⣿⣿⡄⠀⠀⠀⠀
